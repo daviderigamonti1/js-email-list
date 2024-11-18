@@ -13,6 +13,7 @@ generare 10 indirizzi email e stamparli in pagina all'interno di una lista.
 console.clear();
 
 const list = document.getElementById("list");
+console.log(list);
 
 function generates() {
     const arrayEmails = [];
@@ -22,6 +23,7 @@ function generates() {
             .get("https://flynn.boolean.careers/exercises/api/random/mail")
             .then((result) => {
                 const email = result.data.response;
+                console.log(email);
                 arrayEmails.push(email);
 
                 if (arrayEmails.length === 10) {
@@ -37,3 +39,6 @@ function generates() {
             });
     }
 }
+
+const myButton = document.getElementById("myButton");
+myButton.addEventListener("click", generates);
